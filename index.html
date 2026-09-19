@@ -152,6 +152,7 @@
         </div>
 
         <form id="contact-form" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="two">
             <div class="field">
               <label for="f-name">Name</label>
@@ -195,22 +196,52 @@
 document.getElementById("yr").textContent = new Date().getFullYear();
 
 (function () {
+  // Set to the Formspree endpoint, e.g. "https://formspree.io/f/xxxxxxxx".
+  // While empty, the form falls back to opening the visitor's email program.
+  var ENDPOINT = "";
+
   var form = document.getElementById("contact-form");
   var note = document.getElementById("form-note");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    var v = function (n) { return form.elements[n].value.trim(); };
+  var button = form.querySelector("button[type=submit]");
+  var v = function (n) { return form.elements[n].value.trim(); };
+
+  function say(text, ok) {
+    note.textContent = text;
+    note.classList.toggle("sent", !!ok);
+  }
+
+  function viaMail() {
     var name = v("name"), company = v("company"), email = v("email"), message = v("message");
     var subject = "Enquiry from " + name + (company ? " (" + company + ")" : "");
     var body = message + "\n\n--\n" + name + (company ? "\n" + company : "") + "\n" + email;
-    var href = "mailto:leon.barth@urim.technology"
+    window.location.href = "mailto:leon.barth@urim.technology"
       + "?cc=" + encodeURIComponent("hello@urim.technology")
       + "&subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(body);
-    window.location.href = href;
-    note.textContent = "Your email program should now open with the message. If it does not, write to hello@urim.technology directly.";
-    note.classList.add("sent");
+    say("Your email program should now open with the message. If it does not, write to hello@urim.technology directly.", true);
+  }
+
+  function viaEndpoint() {
+    button.disabled = true;
+    say("Sending…");
+    var data = new FormData(form);
+    data.append("_subject", "Enquiry from " + v("name") + (v("company") ? " (" + v("company") + ")" : ""));
+    fetch(ENDPOINT, { method: "POST", body: data, headers: { "Accept": "application/json" } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r); })
+      .then(function () {
+        form.reset();
+        say("Thank you. Your message has reached us and we will reply personally.", true);
+      })
+      .catch(function () {
+        say("The message could not be sent. Please write to hello@urim.technology directly.", false);
+      })
+      .then(function () { button.disabled = false; });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (ENDPOINT) { viaEndpoint(); } else { viaMail(); }
   });
 })();
 </script>
