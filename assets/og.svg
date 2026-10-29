@@ -58,14 +58,14 @@
   <text x="96" y="122" font-size="15" font-weight="500" letter-spacing="3.2" fill="rgba(242,255,250,.5)">URIM TECHNOLOGIES</text>
 
   <text x="94" y="262" font-size="72" font-weight="300" letter-spacing="-1.6" fill="#F2FFFA">
-    <tspan x="94" dy="0">We help industry builders</tspan>
-    <tspan x="94" dy="82">shape the marketplace</tspan>
-    <tspan x="94" dy="82">of tomorrow.</tspan>
+    <tspan x="94" dy="0">Practical technology</tspan>
+    <tspan x="94" dy="82">for complex, real-world</tspan>
+    <tspan x="94" dy="82">operations.</tspan>
   </text>
 
   <rect x="80" y="464" width="420" height="40" fill="url(#glow)" filter="url(#soft)"/>
   <rect x="96" y="484" width="520" height="1.5" fill="url(#line)"/>
 
-  <text x="96" y="552" font-size="20" font-weight="300" fill="rgba(242,255,250,.6)">Strategic market intelligence, and reliable routes into local markets.</text>
+  <text x="96" y="552" font-size="20" font-weight="300" fill="rgba(242,255,250,.6)">Software engineering, product design and operational insight. East Africa, the UAE and beyond.</text>
   <text x="1104" y="552" font-size="18" font-weight="400" text-anchor="end" fill="rgba(242,255,250,.5)">tryurim.com</text>
 </svg>
