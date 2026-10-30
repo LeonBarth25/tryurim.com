@@ -45,11 +45,11 @@
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow rise">URIM Technologies</p>
-      <h1 class="rise">Practical technology for complex, <span style="white-space:nowrap">real-world</span> operations.</h1>
-      <p class="lede rise">We bring together software engineering, product design and operational insight to build digital tools shaped around the people, processes and environments they serve. International technology experience, with team presence in East Africa and the UAE.</p>
+      <h1 class="rise">31 of the world’s 50 fastest-growing economies are African.<sup class="fn"><button type="button" class="fn-mark" aria-label="Source note" aria-expanded="false" aria-controls="fn1">1</button><span class="fn-note" id="fn1" role="tooltip"><strong>URIM Research, 2026</strong><span class="fn-body">Source, reference date and method are documented in our 2026 research note.</span></span></sup></h1>
+      <p class="lede rise">With an international team on the ground in East Africa, the UAE, Europe and the US, we help you find the opportunity that fits your company best, ground your decisions in hard evidence, and build what it takes to get there, from strategy and software to implementation and support.</p>
       <div class="actions rise">
-        <a class="btn" href="#contact">Get in touch</a>
-        <a class="link" href="#about">Who we are</a>
+        <a class="btn" href="#contact">See which market fits you</a>
+        <a class="link" href="mailto:hello@urim.technology">Talk to our team</a>
       </div>
       <div class="hero-rule rise" aria-hidden="true"></div>
     </div>
@@ -179,6 +179,15 @@
 
 <script>
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+(function () {
+  var fn = document.querySelector(".fn");
+  var mark = fn.querySelector(".fn-mark");
+  function set(open) { fn.classList.toggle("open", open); mark.setAttribute("aria-expanded", open); }
+  mark.addEventListener("click", function (e) { e.stopPropagation(); set(!fn.classList.contains("open")); });
+  document.addEventListener("click", function () { set(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+})();
 
 (function () {
   // Set to the Formspree endpoint, e.g. "https://formspree.io/f/xxxxxxxx".
