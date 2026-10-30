@@ -129,17 +129,19 @@ p { margin: 0; }
   padding: calc(var(--nav-h) + 48px) 0 96px;
 }
 .hero .eyebrow { margin-bottom: 28px; }
+.hero .wrap { text-align: center; }
 .hero h1 {
   position: relative;
   z-index: 2;
-  font-size: clamp(2.5rem, 6.4vw, 5rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  max-width: 16ch;
+  font-size: clamp(2.75rem, 7.6vw, 6.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  max-width: 22ch;
+  margin-inline: auto;
 }
 .hero .lede {
-  margin-top: 32px;
-  max-width: 44ch;
+  margin: 36px auto 0;
+  max-width: 58ch;
   font-size: clamp(1.125rem, 1.7vw, 1.4375rem);
   line-height: 1.55;
   font-weight: 300;
@@ -155,7 +157,7 @@ p { margin: 0; }
 }
 .fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { color: var(--ink); border-color: var(--ink-64); }
 .fn-note {
-  position: absolute; left: 0; top: calc(100% + 10px); z-index: 5;
+  position: absolute; right: 0; top: calc(100% + 10px); z-index: 5;
   width: 300px; max-width: calc(100vw - 2 * var(--gutter));
   padding: 14px 16px; border-radius: 10px;
   background: hsl(176 50% 6%); border: 1px solid var(--line);
@@ -168,25 +170,24 @@ p { margin: 0; }
 .fn-note strong { display: block; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .fn-body { display: block; }
 .fn:hover .fn-note, .fn:focus-within .fn-note, .fn.open .fn-note { opacity: 1; visibility: visible; transform: none; transition: opacity .25s, transform .25s; }
-@media (max-width: 640px) { .fn-note { left: auto; right: 0; } }
 
-.hero .actions { margin-top: 48px; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.hero .actions { margin-top: 48px; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
 
 /* The aurora, once: a faint light along a hairline beneath the hero. */
 .hero-rule {
   position: relative;
-  margin-top: 104px;
+  margin: 104px auto 0;
   height: 1px;
   width: min(100%, 560px);
-  background: linear-gradient(90deg, hsl(162 45% 68% / .5) 0%, hsl(162 45% 68% / .28) 45%, hsl(162 45% 68% / 0) 100%);
+  background: linear-gradient(90deg, hsl(162 45% 68% / 0) 0%, hsl(162 45% 68% / .45) 50%, hsl(162 45% 68% / 0) 100%);
 }
 .hero-rule::before {
   content: "";
   position: absolute;
-  left: 0; top: -6px;
+  left: 20%; top: -6px;
   width: 60%;
   height: 13px;
-  background: radial-gradient(ellipse 50% 50% at 20% 50%, hsl(162 55% 62% / .22), hsl(162 55% 62% / 0));
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, hsl(162 55% 62% / .22), hsl(162 55% 62% / 0));
   filter: blur(4px);
   pointer-events: none;
 }
