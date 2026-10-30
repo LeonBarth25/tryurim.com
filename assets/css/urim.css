@@ -147,10 +147,11 @@ p { margin: 0; }
   color: var(--ink-64);
 }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
-.fn { position: relative; display: inline-block; vertical-align: top; line-height: 1; margin-left: .04em; top: -.16em; }
+/* The numeral sits wholly above the closing quote, tight against it. */
+.fn { position: relative; display: inline-block; vertical-align: baseline; line-height: 1; margin-left: .02em; top: -.74em; }
 .fn-mark {
-  font: inherit; font-size: .42em; font-weight: 400; letter-spacing: 0; line-height: 1;
-  padding: 0 .12em; border: 0; background: transparent; color: var(--ink-64);
+  font: inherit; font-size: .38em; font-weight: 400; letter-spacing: 0; line-height: 1;
+  padding: 0 .08em; border: 0; background: transparent; color: var(--ink-64);
   cursor: pointer; transition: color .25s;
 }
 .fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { color: var(--ink); }
