@@ -130,14 +130,14 @@ p { margin: 0; }
 }
 .hero .eyebrow { margin-bottom: 28px; }
 .hero .wrap { text-align: center; }
+/* Sized so the quote fills the column in two lines, like the nav spans it. */
 .hero h1 {
   position: relative;
   z-index: 2;
-  font-size: clamp(2.75rem, 7.6vw, 6.25rem);
-  line-height: 1.04;
+  font-size: clamp(2.25rem, calc((100vw - 2 * var(--gutter)) / 15.3), 4.4rem);
+  line-height: 1.06;
   letter-spacing: -0.03em;
-  max-width: 22ch;
-  margin-inline: auto;
+  text-wrap: balance;
 }
 .hero .lede {
   margin: 36px auto 0;
@@ -148,14 +148,13 @@ p { margin: 0; }
   color: var(--ink-64);
 }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
-.fn { position: relative; display: inline-block; vertical-align: top; line-height: 0; margin-left: .15em; top: .35em; }
+.fn { position: relative; display: inline-block; vertical-align: top; line-height: 1; margin-left: .06em; top: .08em; }
 .fn-mark {
-  font: inherit; font-size: .3em; font-weight: 400; letter-spacing: 0;
-  width: 2.1em; height: 2.1em; padding: 0; border-radius: 999px;
-  border: 1px solid var(--ink-28); background: transparent; color: var(--ink-64);
-  cursor: pointer; transition: color .25s, border-color .25s;
+  font: inherit; font-size: .42em; font-weight: 400; letter-spacing: 0; line-height: 1;
+  padding: 0 .12em; border: 0; background: transparent; color: var(--ink-64);
+  cursor: pointer; transition: color .25s;
 }
-.fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { color: var(--ink); border-color: var(--ink-64); }
+.fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { color: var(--ink); }
 .fn-note {
   position: absolute; right: 0; top: calc(100% + 10px); z-index: 5;
   width: 300px; max-width: calc(100vw - 2 * var(--gutter));
