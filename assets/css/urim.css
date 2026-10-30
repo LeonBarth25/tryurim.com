@@ -147,15 +147,17 @@ p { margin: 0; }
   color: var(--ink-64);
 }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
-/* The numeral sits wholly above the closing quote, tight against it. */
-.fn { position: relative; display: inline-block; vertical-align: baseline; line-height: 1; margin-left: .02em; top: -.74em; }
+/* The mark is the superscript character itself, so copying the headline yields "¹". */
+.fn { position: relative; display: inline-block; line-height: 1; }
 .fn-mark {
-  font: inherit; font-size: .38em; font-weight: 400; letter-spacing: 0; line-height: 1;
-  padding: 0 .08em; border: 0; background: transparent; color: var(--ink-64);
+  font: inherit; font-size: .62em; font-weight: 400; letter-spacing: 0; line-height: 1;
+  position: relative; top: -.32em;
+  padding: 0 .04em; border: 0; background: transparent; color: var(--ink-64);
   cursor: pointer; transition: color .25s;
 }
 .fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { color: var(--ink); }
 .fn-note {
+  user-select: none; -webkit-user-select: none;
   position: absolute; right: 0; top: calc(100% + 10px); z-index: 5;
   width: 300px; max-width: calc(100vw - 2 * var(--gutter));
   padding: 14px 16px; border-radius: 10px;
