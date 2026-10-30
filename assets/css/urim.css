@@ -130,6 +130,8 @@ p { margin: 0; }
 }
 .hero .eyebrow { margin-bottom: 28px; }
 .hero h1 {
+  position: relative;
+  z-index: 2;
   font-size: clamp(2.5rem, 6.4vw, 5rem);
   line-height: 1.05;
   letter-spacing: -0.025em;
