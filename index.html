@@ -44,7 +44,7 @@
 
   <section class="hero">
     <div class="wrap">
-      <h1 class="rise">“31 of the world’s <span style="white-space:nowrap">top-50</span> fastest-<br>growing economies are African.”<span class="fn"><button type="button" class="fn-mark" aria-label="Source note" aria-expanded="false" aria-controls="fn1">¹</button><span class="fn-note" id="fn1" role="tooltip"><strong>URIM Research, 2026</strong><span class="fn-body">Source, reference date and method are documented in our 2026 research note.</span></span></span></h1>
+      <h1 class="rise">“31 of the world’s <span style="white-space:nowrap">top-50</span> fastest-<br>growing economies are African.”<span class="fn"><span class="fn-mark" role="button" tabindex="0" aria-label="Source note" aria-expanded="false" aria-controls="fn1">¹</span><span class="fn-note" id="fn1" role="tooltip"><strong>URIM Research, 2026</strong><span class="fn-body">Source, reference date and method are documented in our 2026 research note.</span></span></span></h1>
       <p class="lede rise">With an international team on the ground in East Africa, the UAE, Europe and the US, we help you find the opportunity that fits your company best, ground your decisions in hard evidence, and build what it takes to get there, from strategy and software to implementation and support.</p>
       <div class="actions rise">
         <a class="btn" href="#contact">See which market fits you</a>
@@ -184,6 +184,7 @@ document.getElementById("yr").textContent = new Date().getFullYear();
   var mark = fn.querySelector(".fn-mark");
   function set(open) { fn.classList.toggle("open", open); mark.setAttribute("aria-expanded", open); }
   mark.addEventListener("click", function (e) { e.stopPropagation(); set(!fn.classList.contains("open")); });
+  mark.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); set(!fn.classList.contains("open")); } });
   document.addEventListener("click", function () { set(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
 })();
