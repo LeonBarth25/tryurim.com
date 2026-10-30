@@ -147,14 +147,14 @@ p { margin: 0; }
   color: var(--ink-64);
 }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
-/* The mark is the ¹ character. Roboto's ¹ is taller and hangs lower than a
-   classic reference mark, so it is scaled and lifted to measured proportions:
-   top at cap height (1.35 x-height), bottom at 0.71 x-height, height 0.65 x-height. */
+/* The mark is the ¹ character, sized and placed against the closing quote,
+   measured from reference renders (in quote-mark heights): ¹ 1.37 tall,
+   overshooting the quote 0.12 above and 0.26 below, 0.35 gap after it. */
 .fn { position: static; display: inline; }
 .fn-mark {
   font: inherit; letter-spacing: inherit; line-height: 0; color: inherit;
-  font-size: 0.890em; position: relative; top: -0.090em;
-  padding: 0; margin: 0 0 0 -.02em; border: 0; background: transparent;
+  font-size: 0.761em; position: relative; top: -0.309em;
+  padding: 0; margin: 0 0 0 .02em; border: 0; background: transparent;
   cursor: pointer; transition: opacity .25s;
 }
 .fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { opacity: .7; }
