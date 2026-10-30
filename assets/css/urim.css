@@ -134,10 +134,9 @@ p { margin: 0; }
 .hero h1 {
   position: relative;
   z-index: 2;
-  font-size: clamp(2.25rem, calc((100vw - 2 * var(--gutter)) / 15.3), 4.4rem);
+  font-size: clamp(2.25rem, calc((100vw - 2 * var(--gutter)) / 14.5), 4.6rem);
   line-height: 1.06;
   letter-spacing: -0.03em;
-  text-wrap: balance;
 }
 .hero .lede {
   margin: 36px auto 0;
@@ -148,7 +147,7 @@ p { margin: 0; }
   color: var(--ink-64);
 }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
-.fn { position: relative; display: inline-block; vertical-align: top; line-height: 1; margin-left: .06em; top: .08em; }
+.fn { position: relative; display: inline-block; vertical-align: top; line-height: 1; margin-left: .04em; top: -.16em; }
 .fn-mark {
   font: inherit; font-size: .42em; font-weight: 400; letter-spacing: 0; line-height: 1;
   padding: 0 .12em; border: 0; background: transparent; color: var(--ink-64);
@@ -400,6 +399,7 @@ form { display: grid; gap: 8px; }
 @media (max-width: 640px) {
   :root { --gutter: 20px; --nav-h: 68px; }
   body { font-size: 17px; }
+  .hero h1 br { display: none; }
   .row { grid-template-columns: 1fr; }
   .section { padding: 88px 0; }
   .section-head { margin-bottom: 40px; }
