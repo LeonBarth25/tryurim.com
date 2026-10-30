@@ -149,7 +149,7 @@ p { margin: 0; }
 /* Footnote: a small mark after the headline; the note opens on hover, focus or tap. */
 /* The mark is the ¹ character set exactly like the surrounding text, so it sits
    where the font puts a superscript: same size, weight and colour as the headline. */
-.fn { position: relative; display: inline; }
+.fn { position: static; display: inline; }
 .fn-mark {
   font: inherit; letter-spacing: inherit; line-height: inherit; color: inherit;
   padding: 0; margin: 0; border: 0; background: transparent;
@@ -158,19 +158,19 @@ p { margin: 0; }
 .fn:hover .fn-mark, .fn:focus-within .fn-mark, .fn.open .fn-mark { opacity: .7; }
 .fn-note {
   user-select: none; -webkit-user-select: none;
-  position: absolute; right: 0; top: calc(100% + 10px); z-index: 5;
-  width: 300px; max-width: calc(100vw - 2 * var(--gutter));
+  position: absolute; left: 50%; top: calc(100% + 12px); z-index: 5;
+  width: 320px; max-width: 100%;
   padding: 14px 16px; border-radius: 10px;
   background: hsl(176 50% 6%); border: 1px solid var(--line);
   box-shadow: 0 18px 50px hsl(180 60% 1% / .6);
   font-size: .8125rem; font-weight: 400; line-height: 1.5; letter-spacing: 0;
   color: var(--ink-64); text-align: left;
-  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  opacity: 0; visibility: hidden; transform: translate(-50%, -4px);
   transition: opacity .25s, transform .25s, visibility 0s .25s;
 }
 .fn-note strong { display: block; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .fn-body { display: block; }
-.fn:hover .fn-note, .fn:focus-within .fn-note, .fn.open .fn-note { opacity: 1; visibility: visible; transform: none; transition: opacity .25s, transform .25s; }
+.fn:hover .fn-note, .fn:focus-within .fn-note, .fn.open .fn-note { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .25s, transform .25s; }
 
 .hero .actions { margin-top: 48px; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
 
