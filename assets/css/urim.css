@@ -117,7 +117,7 @@ p { margin: 0; }
 .wordmark b { font-weight: 500; }
 .wordmark span { font-weight: 300; color: var(--ink-64); }
 .nav-links { display: flex; gap: 32px; }
-.nav-links a { font-size: 1rem; color: var(--ink-64); transition: color .25s; }
+.nav-links a { white-space: nowrap; font-size: 1rem; color: var(--ink-64); transition: color .25s; }
 .nav-links a:hover { color: var(--ink); }
 
 /* Hero */
@@ -250,6 +250,7 @@ p { margin: 0; }
 
 /* Sections */
 .section { padding: 128px 0; }
+[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .section + .section { border-top: 1px solid var(--line-soft); }
 .section-head { margin-bottom: 64px; }
 .section-head .eyebrow { margin-bottom: 20px; }
@@ -415,4 +416,10 @@ form { display: grid; gap: 8px; }
   .nav-links { gap: 22px; }
   .nav-links a { font-size: .875rem; }
   .footer .wrap { flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .wordmark span { display: none; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: .875rem; }
 }
